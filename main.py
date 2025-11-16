@@ -9,7 +9,7 @@ smpt_server = 'smpt.gmail.com'
 port = 587
 
 
-con = mysql.connector.connect(user='admin', password='BybByb1234!?',host='forum-database.c9u8kasekpqr.eu-north-1.rds.amazonaws.com',database ='forum')
+con = mysql.connector.connect(user='admin', password='adminadmin',host='forum-wedkarskie-database.c9u8kasekpqr.eu-north-1.rds.amazonaws.com',database='forum')
 
 cursor = con.cursor()
 
