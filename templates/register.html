@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pl" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Wędkarskie - Rejestracja</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">
+        Zarejestruj się w Forum Wędkarskim
+      </div>
+      <form method="POST" action="{{ url_for('register') }}">
+        <div class="field">
+          <input type="email" name="email" required placeholder=" " value="{{ email_value }}">
+          <label>Email</label>
+        </div>
+        <div class="field">
+          <input type="text" name="username" required placeholder=" " value="{{ username_value }}">
+          <label>Nazwa użytkownika</label>
+        </div>
+        <div class="field">
+          <input type="password" name="password" minlength="8" required placeholder=" ">
+          <label>Hasło</label>
+        </div>
+        <div class="field">
+          <input type="submit" value="Zarejestruj się">
+        </div>
+        <div class="small">
+          {{ msg }}
+        </div>
+      </form>
+
+      <p class="bottom">
+        Masz już konto?
+        <a href="{{ url_for('login') }}">Zaloguj się tutaj</a>
+      </p>
+    </div>
+  </body>
+</html>

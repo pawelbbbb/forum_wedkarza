@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8">
+    <title>Forum Wędkarskie - Strona główna</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+  </head>
+  <body>
+    <div class="indexsite">
+      <div class="title">Forum Wędkarskie</div>
+
+      <div class="index-header">
+        <div class="welcome">
+          Witaj, <span class="username">{{ username }}</span>!
+        </div>
+        <a href="{{ url_for('logout') }}" class="logout-button">Wyloguj się</a>
+      </div>
+
+      <div class="add-post-wrapper">
+        <a href="{{ url_for('add_post') }}" class="new-post-button">Dodaj posta</a>
+      </div>
+
+
+      <div class="posts">
+        {% if posts %}
+          {% for post in posts %}
+            <a href="{{ url_for('view_post', post_id=post.id) }}" class="post-link">
+              <div class="post">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+                <small>By {{ post.username }} • {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+                <div class="comment-count">
+                  Ilość komentarzy: {{ post.comment_count }}
+                </div>
+              </div>
+            </a>
+          {% endfor %}
+        {% else %}
+          <p>Nie ma jeszcze postów.</p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

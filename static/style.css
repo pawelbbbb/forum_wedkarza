@@ -1,0 +1,773 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+html,body{
+  display: grid ;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: #f2f2f2;
+  background: linear-gradient(-135deg, #647bff, #358353);
+}
+::selection{
+  background: #4158d0;
+  color: #fff;
+}
+
+.indexsite {
+  width: 1200px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.indexsite .content{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+
+}
+.indexsite .title{
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 55px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: linear-gradient(-135deg, #647bff, #358353);
+
+}
+.indexsite form .field_title input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 30px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+
+}
+form .field_title input[type="submit"]{
+  color: #fff;
+  border: none;
+  padding-left: 0;
+  margin-top: 5px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #647bff, #358353);
+  transition: all 0.3s ease;
+}
+.indexsite form .field_content input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 30px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.wrapper{
+  width: 400px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0,0,0,0.1);
+}
+.wrapper .title{
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 55px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: linear-gradient(-135deg, #647bff, #358353);
+}
+.wrapper form{
+  padding: 10px 30px 50px 30px;
+}
+.wrapper form .field{
+  height: 50px;
+  width: 100%;
+  margin-top: 20px;
+  position: relative;
+}
+.wrapper .small{
+  height: 30px;
+  width: 100%;
+  text-align: center;
+  margin-top: 10px
+}
+.wrapper form .field input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+.wrapper form .field input:focus,
+form .field input:valid{
+  border-color: #4158d0;
+}
+.wrapper form .field label{
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+form .field input:focus ~ label,
+form .field input:not(:placeholder-shown) ~ label{
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  background: #fff;
+  transform: translateY(-50%);
+}
+form .content{
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+form .content .checkbox{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+form .content input{
+  width: 15px;
+  height: 15px;
+  background: red;
+}
+form .content label{
+  color: #262626;
+  user-select: none;
+  padding-left: 5px;
+}
+form .content .pass-link{
+  color: #ff0000;
+}
+form .field input[type="submit"]{
+  color: #fff;
+  border: none;
+  padding-left: 0;
+  margin-top: -10px;
+  font-size: 20px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #647bff, #358353);
+  transition: all 0.3s ease;
+}
+form .field input[type="submit"]:active{
+  transform: scale(0.95);
+}
+
+.new-post-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(-135deg, #647bff, #358353);
+  padding: 12px 40px;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.new-post-button:hover {
+  opacity: 0.9;
+}
+
+.new-post-button:active {
+  transform: scale(0.95);
+}
+
+.wrapper .bottom {
+  text-align: center;
+  margin-top: -50px;
+  margin-bottom: 30px;
+  font-size: 15px;
+  color: #555;
+}
+
+.wrapper a {
+  color: #4158d0;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.wrapper a:hover {
+  text-decoration: underline;
+}
+
+.logout-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #4158d0;
+  font-weight: 500;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-button:hover {
+  text-decoration: underline;
+  color: #c850c0;
+}
+
+/* --- Formularz dodawania posta --- */
+
+.indexsite form {
+  padding: 30px 60px 40px 60px;
+}
+
+.indexsite form .field_title,
+.indexsite form .field_content {
+  position: relative;
+  width: 100%;
+  margin-top: 25px;
+}
+
+.indexsite form .field_title input,
+.indexsite form .field_content textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+/* --- Pole tytułu --- */
+.indexsite form .field_title input {
+  height: 50px;
+}
+
+/* --- Pole treści posta --- */
+.indexsite form .field_content textarea {
+  min-height: 250px; /* ok. 5x wyższe niż pole tytułu */
+  font-size: 16px;
+  border-radius: 15px;
+  padding-top: 15px;
+}
+
+/* --- Efekt podnoszenia etykiety (label) jak przy logowaniu --- */
+.indexsite form .field_title label,
+.indexsite form .field_content label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+  background: #fff;
+  padding: 0 5px;
+}
+
+.indexsite form .field_title input:focus ~ label,
+.indexsite form .field_title input:not(:placeholder-shown) ~ label,
+.indexsite form .field_content textarea:focus ~ label,
+.indexsite form .field_content textarea:not(:placeholder-shown) ~ label {
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  transform: translateY(-50%);
+}
+
+/* --- Przycisk "Opublikuj" --- */
+.indexsite form .field_submit {
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.indexsite form .field_submit input[type="submit"] {
+  width: auto;
+  padding: 10px 40px;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 25px;
+  background: linear-gradient(-135deg, #647bff, #358353);
+  transition: all 0.3s ease;
+}
+
+.indexsite form .field_submit input[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+.indexsite form .field_submit input[type="submit"]:active {
+  transform: scale(0.95);
+}
+
+/* --- Napis "Dodaj posta" --- */
+.indexsite .welcome-text {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 15px;
+  color: #333;
+}
+
+/* --- Formularz dodawania posta --- */
+
+.indexsite form {
+  padding: 20px 60px 40px 60px;
+}
+
+.indexsite form .field_title,
+.indexsite form .field_content {
+  position: relative;
+  width: 100%;
+  margin-top: 15px; /* zmniejszony odstęp */
+}
+
+/* --- Pola formularza --- */
+.indexsite form .field_title input,
+.indexsite form .field_content textarea {
+  width: 100%;
+  outline: none;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+/* --- Pole tytułu --- */
+.indexsite form .field_title input {
+  height: 50px;
+}
+
+/* --- Pole treści posta --- */
+.indexsite form .field_content textarea {
+  min-height: 250px;
+  font-size: 16px;
+  border-radius: 15px;
+  padding-top: 25px;
+}
+
+/* --- Etykiety --- */
+.indexsite form .field_title label,
+.indexsite form .field_content label {
+  position: absolute;
+  color: #999;
+  font-size: 17px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  background: #fff;
+  padding: 0 5px;
+}
+
+/* --- Tytuł — label w środku jak w logowaniu --- */
+.indexsite form .field_title label {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+/* --- Treść posta — label na górze --- */
+.indexsite form .field_content .textarea-label {
+  top: 10px;
+  left: 25px;
+  transform: none;
+}
+
+/* --- Efekt podnoszenia dla pola tytułu --- */
+.indexsite form .field_title input:focus ~ label,
+.indexsite form .field_title input:not(:placeholder-shown) ~ label {
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  transform: translateY(-50%);
+}
+
+/* --- Przycisk "Opublikuj" i "Anuluj" --- */
+.indexsite form .field_buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.indexsite form .field_buttons input[type="submit"],
+.indexsite form .field_buttons .cancel-button {
+  padding: 10px 40px;
+  border: none;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* --- Styl "Opublikuj" --- */
+.indexsite form .field_buttons input[type="submit"] {
+  color: #fff;
+  background: linear-gradient(-135deg, #647bff, #358353);
+}
+
+.indexsite form .field_buttons input[type="submit"]:hover {
+  opacity: 0.9;
+}
+
+/* --- Styl "Anuluj" --- */
+.indexsite form .field_buttons .cancel-button {
+  color: #4158d0;
+  background: #fff;
+  border: 2px solid #4158d0;
+  text-decoration: none;
+}
+
+.indexsite form .field_buttons .cancel-button:hover {
+  background: #f0f0f0;
+}
+
+/* --- Napis "Dodaj posta" --- */
+.indexsite .welcome-text {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 10px; /* mniejszy odstęp */
+  color: #333;
+}
+
+/* --- Nagłówek strony index --- */
+.index-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background: #fff;
+  border-radius: 15px;
+  margin: 20px 0;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.1);
+}
+
+/* Witaj, username */
+.index-header .welcome {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.index-header .username {
+  font-weight: 700;
+}
+
+/* Przycisk wyloguj się po prawej */
+.index-header .logout-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #4158d0;
+  font-weight: 500;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.index-header .logout-button:hover {
+  text-decoration: underline;
+  color: #c850c0;
+}
+
+/* --- Przycisk Dodaj posta wyśrodkowany nad postami --- */
+.add-post-wrapper {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.add-post-wrapper .new-post-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(-135deg, #647bff, #358353);
+  padding: 12px 40px;
+  border-radius: 25px;
+  font-size: 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.add-post-wrapper .new-post-button:hover {
+  opacity: 0.9;
+}
+
+.add-post-wrapper .new-post-button:active {
+  transform: scale(0.95);
+}
+
+/* --- Lista postów --- */
+.posts {
+  padding: 0 60px 40px 60px;
+}
+
+.post {
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0px 5px 10px rgba(0,0,0,0.05);
+  height: auto;
+  min-height: 150px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.post h2 {
+  color: #4158d0;
+  margin-bottom: 10px;
+}
+
+.post p {
+  margin-bottom: 10px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.post small {
+  color: #666;
+}
+
+/* Kafelek komentarza */
+.comment {
+  background: #f9f9f9;
+  padding: 15px 20px;
+  border-radius: 15px;
+  margin: 10px 0 10px 20px;
+  box-shadow: 0px 3px 6px rgba(0,0,0,0.05);
+  height: auto;
+  min-height: 60px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+.comment p {
+  margin-bottom: 5px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+.comment small {
+  color: #666;
+}
+
+/* Przycisk anuluj (tak jak przy anuluje posty) */
+.cancel-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #4158d0;
+  background: none;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.cancel-button:hover {
+  text-decoration: underline;
+}
+
+.post-link {
+  text-decoration: none;
+  color: inherit; /* zachowuje czarny tekst jak zwykle */
+  display: block; /* żeby cały kafelek był klikalny */
+}
+.post-link:hover .post {
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.15);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Styl dla pola komentarza */
+.comment form .field input[type="text"] {
+  height: 50px;
+  width: 100%;
+  outline: none;
+  font-size: 17px;
+  padding-left: 20px;
+  border: 1px solid lightgrey;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+/* Podczas focus lub gdy coś wpisano */
+.comment form .field input[type="text"]:focus,
+.comment form .field input[type="text"]:not(:placeholder-shown) {
+  border-color: #4158d0;
+}
+
+/* Label przesuwający się nad pole */
+.comment form .field label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.comment form .field input[type="text"]:focus ~ label,
+.comment form .field input[type="text"]:not(:placeholder-shown) ~ label {
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  background: #fff;
+  transform: translateY(-50%);
+}
+
+/* Przycisk opublikuj w formularzu komentarza */
+.comment form input[type="submit"] {
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  background: linear-gradient(-135deg, #647bff, #358353);
+  padding: 8px 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.comment form input[type="submit"]:active {
+  transform: scale(0.95);
+}
+
+/* Przycisk anuluj */
+.comment form .cancel-button {
+  display: inline-block;
+  text-decoration: none;
+  color: #4158d0; /* teraz taki sam niebieski jak w innych przyciskach */
+  font-weight: 500;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px 20px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.comment form .cancel-button:hover {
+  text-decoration: underline;
+}
+
+.comment form .field textarea {
+  width: 100%;
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: 1px solid lightgrey;
+  outline: none;
+  resize: vertical; /* użytkownik może zmieniać wysokość */
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* focus lub gdy coś wpisano */
+.comment form .field textarea:focus,
+.comment form .field textarea:not(:placeholder-shown) {
+  border-color: #4158d0;
+}
+
+/* label przesuwający się nad pole */
+.comment form .field textarea:focus ~ label,
+.comment form .field textarea:not(:placeholder-shown) ~ label {
+  top: 0%;
+  font-size: 16px;
+  color: #4158d0;
+  background: #fff;
+  transform: translateY(-50%);
+}
+
+.comment form .field {
+  position: relative; /* absolutne label względem pola */
+  margin-top: 15px;
+}
+
+/* textarea wypełnia całe pole */
+.comment form .field textarea {
+  width: 100%;
+  height: 120px; /* ok. 3x standardowe pole */
+  padding: 20px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: 1px solid lightgrey;
+  outline: none;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+/* label początkowo nad środkiem pola */
+.comment form .field label {
+  position: absolute;
+  top: 20px;
+  left: 25px;
+  font-size: 16px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+/* gdy textarea w focus lub nie pusta */
+.comment form .field textarea:focus ~ label,
+.comment form .field textarea:not(:placeholder-shown) ~ label {
+  top: -10px;
+  left: 20px;
+  font-size: 14px;
+  color: #4158d0;
+  background: #fff;
+  padding: 0 5px;
+}
+
+.comment-count {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 14px;
+  color: #555;
+  font-weight: bold;
+}
+.post {
+  position: relative;  /* Aby umożliwić pozycjonowanie w obrębie posta */
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
