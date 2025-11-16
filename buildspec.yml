@@ -1,17 +1,25 @@
 version: 0.2
 
+env:
+  variables:
+    ImageName: "forumwedkarskie"
+
 phases:
   install:
-    commands:
-      - echo Installing Docker...
-      - yum install -y docker
-      - service docker start
-      - $(aws ecr get-login --no-include-email --region eu-north-1)
+    runtime-versions:
+      docker: 18
   build:
     commands:
-      - echo Building Docker image...
-      - docker build -t $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION .
-      - docker push $REPOSITORY_URI:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - echo "Building Docker image..."
+      - docker build -t $ImageName -f Dockerfile .
+  post_build:
+    commands:
+      - echo "Build completed successfully!"
+      - echo "Tagging Docker image..."
+      - docker tag $ImageName:latest 514005485351.dkr.ecr.eu-north-1.amazonaws.com/forumwedkarskie:latest
+      - echo "Pushing Docker image to ECR..."
+      - $(aws ecr get-login --no-include-email --region eu-north-1)
+      - docker push 514005485351.dkr.ecr.eu-north-1.amazonaws.com/forumwedkarskie:latest
+
 artifacts:
   files: '**/*'
-  discard-paths: yes
