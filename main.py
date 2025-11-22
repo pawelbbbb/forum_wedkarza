@@ -5,16 +5,15 @@ from datetime import date
 import bcrypt
 import os, json
 
-db_pass_json = os.getenv('DB_PASS')
-db_user = os.getenv('DB_USER')
-db_host = os.getenv('DB_HOST')
+db_credentials_json = [os.getenv('DB_HOST'), os.getenv('DB_USER'), os.getenv('DB_PASS')]
+db_credentials_dict = []
 
-if db_pass_json:
-    db_pass_dict = json.loads(db_pass_json)
-    db_pass = db_pass_dict.get("forum-db-password")
-else:
-    print("DB_PASS environment variable is not set")
-    db_pass = None
+for cred in db_credentials:
+    db_credentials_dict.append(json.loads(cred))
+
+db_host = db_credentials[0].get("forum-db-host")
+db_user = db_credentials[1].get("forum-db-username")
+db_pass = db_credentials[2].get("forum-db-password")
 
 print("credentials received")
 print(db_user)
