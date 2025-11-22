@@ -8,12 +8,12 @@ import os, json
 db_credentials_json = [os.getenv('DB_HOST'), os.getenv('DB_USER'), os.getenv('DB_PASS')]
 db_credentials_dict = []
 
-for cred in db_credentials:
+for cred in db_credentials_json:
     db_credentials_dict.append(json.loads(cred))
 
-db_host = db_credentials[0].get("forum-db-host")
-db_user = db_credentials[1].get("forum-db-username")
-db_pass = db_credentials[2].get("forum-db-password")
+db_host = db_credentials_dict[0].get("forum-db-host")
+db_user = db_credentials_dict[1].get("forum-db-username")
+db_pass = db_credentials_dict[2].get("forum-db-password")
 
 print("credentials received")
 print(db_user)
