@@ -20,6 +20,8 @@ phases:
       - echo "Pushing Docker image to ECR..."
       - $(aws ecr get-login --no-include-email --region eu-north-1)
       - docker push 514005485351.dkr.ecr.eu-north-1.amazonaws.com/forumwedkarskie:latest
+      - echo '[ { "name": "forum-container", "imageUri": "514005485351.dkr.ecr.eu-north-1.amazonaws.com/simple-docker-service-0a18a02148e9:latest" } ]' > imagedefinitions.json
 
 artifacts:
-  files: '**/*'
+  files:
+    - imagedefinitions.json
