@@ -16,10 +16,6 @@ db_user = db_credentials_dict[1].get("forum-db-username")
 db_pass = db_credentials_dict[2].get("forum-db-password")
 
 print("credentials received")
-print(db_user)
-print(db_pass)
-print(db_host)
-
 con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
 print("connected to database")
 cursor = con.cursor()
