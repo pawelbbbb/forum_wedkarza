@@ -3,14 +3,14 @@ from flask_mysqldb import MySQL
 import mysql.connector
 from datetime import date
 import bcrypt
-import smtplib
+import os
 
-smpt_server = 'smpt.gmail.com'
-port = 587
-
-
-con = mysql.connector.connect(user='admin', password='adminadmin',host='forum-wedkarskie-database.c9u8kasekpqr.eu-north-1.rds.amazonaws.com',database='forum')
-
+db_pass = os.getenv('DB_PASS')
+db_user = os.getenv('DB_USER')
+db_host = os.getenv('DB_HOST')
+print("credentials received")
+con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
+print("connected to database")
 cursor = con.cursor()
 
 app = Flask(__name__)
