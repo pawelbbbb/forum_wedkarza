@@ -3,13 +3,24 @@ from flask_mysqldb import MySQL
 import mysql.connector
 from datetime import date
 import bcrypt
-import os
+import os, json
 
-db_pass = os.getenv('DB_PASS')["forum-db-password"]
+db_pass_json = os.getenv('DB_PASS')
 db_user = os.getenv('DB_USER')
 db_host = os.getenv('DB_HOST')
 
+if db_pass_json:
+    db_pass_dict = json.loads(db_pass_json)
+    db_pass = db_pass_dict.get("forum-db-password")
+else:
+    print("DB_PASS environment variable is not set")
+    db_pass = None
+
 print("credentials received")
+print(db_user)
+print(db_pass)
+print(db_host)
+
 con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
 print("connected to database")
 cursor = con.cursor()
