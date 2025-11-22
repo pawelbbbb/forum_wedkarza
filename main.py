@@ -172,7 +172,7 @@ def view_post(post_id):
 
     return render_template('view_post.html', post=post_dict, username=session['username'])
 
-print("test")
+print("test message")
 @app.route('/health')
 def health():
     return 'OK', 200
