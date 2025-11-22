@@ -8,6 +8,11 @@ import os
 db_pass = os.getenv('DB_PASS')
 db_user = os.getenv('DB_USER')
 db_host = os.getenv('DB_HOST')
+
+print("DB_PASS:", db_pass)
+print("DB_USER:", db_user)
+print("DB_HOST:", db_host)
+
 print("credentials received")
 con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
 print("connected to database")
