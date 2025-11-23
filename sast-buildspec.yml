@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - pip install semgrep
+  build:
+    commands:
+      - echo "Skanuję Semgrep..."
+      - semgrep --config=auto --json > semgrep-report.json || true
+  post_build:
+    commands:
+      - echo "SAST zakończony — pipeline idzie dalej."
+artifacts:
+  files:
+    - semgrep-report.json
