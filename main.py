@@ -29,6 +29,8 @@ app.secret_key = 'secretkey'
 def login():                                                                                        # strona logowania
     msg =''
     if request.method == "POST" and 'username' in request.form and 'password' in request.form:
+        con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
+        cursor = con.cursor()
         username = request.form['username']                                                         # pobieranie danych logowania od użytkownika
         password = request.form['password'].encode('utf-8')
         cursor.execute('SELECT * FROM users WHERE username = %s ', (username,))     # wyszukiwanie użytkownika w tabeli users bazy danych
