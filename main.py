@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from flask_mysqldb import MySQL
+from flask_wtf.csrf import CSRFProtect
 import mysql.connector
 from datetime import date
 import bcrypt
@@ -21,8 +22,9 @@ print("connected to database")
 cursor = con.cursor()
 
 app = Flask(__name__)
+app.secret_key = '8dcf7547dd0380f312214e8df332a5202689be493c8b6485617d8e951fc254de'
 
-app.secret_key = 'secretkey'
+csrf = CSRFProtect(app)
 
 @app.route("/")
 @app.route('/login', methods = ['GET','POST'])
