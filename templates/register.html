@@ -13,6 +13,7 @@
         Zarejestruj się w Forum Wędkarskim
       </div>
       <form method="POST" action="{{ url_for('register') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="field">
           <input type="email" name="email" required placeholder=" " value="{{ email_value }}">
           <label>Email</label>
