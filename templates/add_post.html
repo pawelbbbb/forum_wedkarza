@@ -15,6 +15,7 @@
       </div>
 
       <form method="POST" action="{{ url_for('add_post') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
         <div class="field_title">
           <input type="text" name="post_title" required placeholder=" ">
           <label>Tytuł</label>
