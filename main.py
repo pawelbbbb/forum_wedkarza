@@ -26,6 +26,14 @@ app.secret_key = '8dcf7547dd0380f312214e8df332a5202689be493c8b6485617d8e951fc254
 
 csrf = CSRFProtect(app)
 
+@app.after_request
+def add_security_headers(response):
+    response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
+    response.headers['X-Content-Type-Options'] = 'nosniff'
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    response.headers['Server'] = 'Hidden'
+    return response
+    
 @app.route("/")
 @app.route('/login', methods = ['GET','POST'])
 def login():                                                                                        # strona logowania
