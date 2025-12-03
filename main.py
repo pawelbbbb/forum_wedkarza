@@ -73,7 +73,8 @@ def logout():
 def register(): 
     msg =''
     if request.method == "POST" and 'email' in request.form and 'username' in request.form and 'password' in request.form:
-
+        con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
+        cursor = con.cursor()
         email = request.form['email']
         username = request.form['username']                                                         # pobieranie danych konta od użytkownika
         password = request.form['password'].encode('utf-8')
@@ -106,7 +107,8 @@ def register():
 def index():
     if not session.get('loggedin'):
         return redirect(url_for('login'))
-
+    con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
+    cursor = con.cursor()
     cursor.execute('SELECT posts.id, posts.title, posts.content, posts.created_at, users.username FROM posts JOIN users ON posts.user_id = users.id ORDER BY posts.created_at DESC')
     posts_data = cursor.fetchall()                                                                  # pobieranie wszystkich postów
     posts = []
@@ -132,6 +134,8 @@ def add_post():
         return redirect(url_for('login'))
 
     if request.method == "POST":
+        con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
+        cursor = con.cursor()
         title = request.form['post_title']                                                          # pobieranie zawartości posta
         content = request.form['content']
         cursor.execute('INSERT INTO posts (user_id,title,content) VALUES (%s,%s,%s)', (session['id'], title,content))
@@ -144,7 +148,8 @@ def add_post():
 def view_post(post_id):
     if not session.get('loggedin'):
         return redirect(url_for('login'))
-
+    con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
+    cursor = con.cursor()
     cursor.execute(
         'SELECT posts.id, posts.title, posts.content, posts.created_at, users.username '
         'FROM posts JOIN users ON posts.user_id = users.id WHERE posts.id = %s',
@@ -164,6 +169,8 @@ def view_post(post_id):
     comments = [{'id': c[0], 'content': c[1], 'created_at': c[2], 'username': c[3]} for c in comments_data]
 
     if request.method == "POST":
+        con = mysql.connector.connect(user=db_user, password=db_pass, host=db_host, database='forum')
+        cursor = con.cursor()
         content = request.form['content']
         if content.strip() != "":                                                                   # dodawanie komentarza
             cursor.execute(
