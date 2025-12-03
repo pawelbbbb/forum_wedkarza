@@ -197,6 +197,6 @@ def health():
     return 'OK', 200
     
 def run_app():
-    app.run(port="5000")
+    app.run("0.0.0.0",port="5000")
 
 run_app()
