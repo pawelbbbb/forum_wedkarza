@@ -24,6 +24,10 @@ cursor = con.cursor()
 app = Flask(__name__)
 app.secret_key = '8dcf7547dd0380f312214e8df332a5202689be493c8b6485617d8e951fc254de'
 
+app.config['SESSION_COOKIE_HTTPONLY'] = True
+app.config['SESSION_COOKIE_SECURE'] = True
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax'
+
 csrf = CSRFProtect(app)
 
 @app.after_request
@@ -33,10 +37,11 @@ def add_security_headers(response):
     response.headers['X-Frame-Options'] = 'DENY'
     response.headers['Referrer-Policy'] = 'strict-origin-when-cross-origin'
     response.headers['Permissions-Policy'] = "geolocation=(), camera=(), microphone=(), fullscreen=(self)"
+    response.headers['Content-Security-Policy'] = "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; object-src 'none'; frame-ancestors 'none';"
     response.headers['Cross-Origin-Opener-Policy'] = 'same-origin'
     response.headers['Cross-Origin-Resource-Policy'] = 'same-origin'
     response.headers['Cross-Origin-Embedder-Policy'] = 'require-corp'
-    response.headers['Server'] = ''
+    response.headers['Server'] = 'Web Server'
     return response
     
 @app.route("/")
