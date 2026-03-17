@@ -12,6 +12,9 @@ db_credentials_dict = []
 for cred in db_credentials_json:
     db_credentials_dict.append(json.loads(cred))
 
+def format_date(date_value):
+    return date_value.strftime('%Y-%m-%d %H:%M:%S')
+
 db_host = db_credentials_dict[0].get("forum-db-host")
 db_user = db_credentials_dict[1].get("forum-db-username")
 db_pass = db_credentials_dict[2].get("forum-db-password")
@@ -194,7 +197,7 @@ def view_post(post_id):
         'id': post[0],
         'title': post[1],
         'content': post[2],
-        'created_at': post[3],
+        'created_at': format_date(post[3]),
         'username': post[4],
         'comments': comments
     }
