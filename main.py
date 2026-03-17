@@ -22,7 +22,7 @@ print("connected to database")
 cursor = con.cursor()
 
 app = Flask(__name__)
-app.secret_key = '8dcf7547dd0380f312214e8df332a5202689be493c8b6485617d8e951fc254de'
+app.secret_key = os.getenv('FLASK_SECRET_KEY')
 
 app.config['SESSION_COOKIE_HTTPONLY'] = True
 app.config['SESSION_COOKIE_SECURE'] = True
